@@ -1,0 +1,19 @@
+{
+  "name": "raspi_websocket",
+  "version": "1.0.0",
+  "description": "node websocket with raspiberry pi",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "raspi": "npm install raspi-io && nodemon server.js"
+  },
+  "author": "James J. Hawkins",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "johnny-five": "^0.13.0",
+    "nodemon": "^1.14.11",
+    "socket.io": "^2.0.4"
+  }
+}

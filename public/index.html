@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Raspi Socket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="index.css">  
+  </head>
+  <h1>Welcome to Raspi Websocket</h1>
+  <body>
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider round" value="false" onclick="slide(this)"></span>
+    </label>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      var socket = io();
+
+      function slide() {
+        this.value = !this.value;
+        if (this.value) {
+          socket.emit('client-wave', {
+            greeting: 'Hello from client'
+          });
+        }
+        else {
+          socket.emit('client-bye', {
+            greeting: 'Bye from client'
+          });
+        }
+      }
+
+      socket.on('server-wave', function(msg) {
+          console.log(msg.greeting);
+      });
+      
+    </script>
+  </body>
+</html>
